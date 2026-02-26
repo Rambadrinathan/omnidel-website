@@ -1478,6 +1478,201 @@
             font-size: 0.8rem;
         }
 
+        /* ========== KARMYOG VENTURE BADGE ========== */
+        .karmyog-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-top: 1rem;
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+            background: rgba(45, 106, 79, 0.06);
+            border: 1px solid rgba(45, 106, 79, 0.15);
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--accent-green);
+            letter-spacing: 0.03em;
+        }
+
+        .karmyog-badge .ky-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .karmyog-badge .ky-leaf {
+            width: 16px;
+            height: 16px;
+            color: var(--accent-green);
+        }
+
+        .karmyog-badge .ky-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 0.8rem;
+            color: var(--accent-green);
+        }
+
+        /* ========== L&D HERITAGE SECTION ========== */
+        .heritage-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+            align-items: start;
+        }
+
+        .heritage-story {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .heritage-story p {
+            margin-bottom: 1rem;
+        }
+
+        .heritage-story strong {
+            color: var(--text-primary);
+        }
+
+        .heritage-badges {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .heritage-badge-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s;
+        }
+
+        .heritage-badge-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .heritage-badge-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .heritage-badge-icon i { width: 24px; height: 24px; }
+
+        .heritage-badge-card:nth-child(1) .heritage-badge-icon { background: rgba(199, 137, 11, 0.1); color: var(--accent); }
+        .heritage-badge-card:nth-child(2) .heritage-badge-icon { background: rgba(45, 106, 79, 0.1); color: var(--accent-green); }
+        .heritage-badge-card:nth-child(3) .heritage-badge-icon { background: rgba(196, 105, 61, 0.1); color: var(--accent-terracotta); }
+
+        .heritage-badge-card h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .heritage-badge-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .heritage-connection {
+            margin-top: 3rem;
+            background: linear-gradient(135deg, rgba(45, 106, 79, 0.06), rgba(199, 137, 11, 0.04));
+            border: 1px solid var(--border-green);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+        }
+
+        .heritage-connection h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .heritage-connection p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            max-width: 750px;
+            margin: 0 auto;
+            line-height: 1.75;
+        }
+
+        .heritage-connection strong {
+            color: var(--accent-green);
+        }
+
+        .heritage-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .heritage-flow-step {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .heritage-flow-step i { width: 18px; height: 18px; color: var(--accent-green); }
+        .heritage-flow-arrow { color: var(--accent); font-weight: 300; }
+        .heritage-flow-arrow i { width: 18px; height: 18px; }
+
+        /* Footer KarmYog */
+        .footer-karmyog {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+            font-size: 0.75rem;
+            color: rgba(255, 248, 238, 0.35);
+        }
+
+        .footer-karmyog .ky-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            color: rgba(255, 248, 238, 0.5);
+        }
+
+        .footer-karmyog .ky-leaf {
+            width: 14px;
+            height: 14px;
+            color: rgba(45, 106, 79, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .heritage-layout { grid-template-columns: 1fr; gap: 2rem; }
+            .heritage-flow { gap: 0.5rem; }
+            .heritage-flow-step { font-size: 0.75rem; padding: 0.4rem 0.75rem; }
+        }
+
         /* ========== ANIMATIONS ========== */
         .reveal {
             opacity: 0;
@@ -1581,6 +1776,7 @@
             <li><a href="#opportunity">Opportunity</a></li>
             <li><a href="#solution">Solution</a></li>
             <li><a href="#olympiad">Olympiad</a></li>
+            <li><a href="#heritage">Heritage</a></li>
             <li><a href="#whyus">Why Us</a></li>
             <li><a href="#team">Team</a></li>
             <li><a href="#gtm">Roadmap</a></li>
@@ -1598,6 +1794,14 @@
                 <div class="hero-badge reveal">
                     <span class="pulse"></span>
                     AI-Native Platform
+                </div>
+                <div class="karmyog-badge reveal">
+                    <span>a</span>
+                    <span class="ky-logo">
+                        <i data-lucide="leaf" class="ky-leaf"></i>
+                        <span class="ky-name">KarmYog</span>
+                    </span>
+                    <span>Venture</span>
                 </div>
                 <h1 class="reveal reveal-delay-1">
                     Voice+Image <span class="gradient-text">Gamification</span><br>of Work
@@ -1963,6 +2167,61 @@
         </section>
     </div>
 
+    <!-- L&D HERITAGE -->
+    <div class="section-bg-green">
+        <section id="heritage">
+            <div class="section-label reveal">Our L&D Heritage</div>
+            <h2 class="section-title reveal">OmniDEL.ai didn't start in 2026.<br>It started 30 years ago.</h2>
+            <p class="section-subtitle reveal">OmniDEL.ai is the AI-native evolution of the OmniDEL framework — a proven learning methodology built over three decades and validated by India's top institutions.</p>
+
+            <div class="heritage-layout">
+                <div class="heritage-story reveal">
+                    <p><strong>OmniDEL — Omni-Dimensionally Engaging Learning</strong> — was created by Mahacharya Shri Sourabh J. Sarkar as a methodology that blends the best of eastern and western learning pedagogies with mass education and media techniques.</p>
+                    <p>The framework engages learners across four dimensions — <strong>Physical (Tan), Energetic (Prana), Mental (Mann), and Spiritual (Chitt)</strong> — through four stages of learning: Awakening, Discovery, Development, and Practice. It delivers education through every channel: TV, radio, mobile, events, concerts, games, and on-ground classroom experiences.</p>
+                    <p>In 2012, <strong>NSDC (National Skill Development Corporation) recognized OmniDEL as the Best Learning Methodology</strong> in India. This recognition led to a <strong>million-dollar investment from Tata Trusts</strong> to scale quality education using the OmniDEL platform — powering programs like <strong>Behtar Life</strong> (life-skills education) and skill mitra empowerment across 10 clusters.</p>
+                    <p>Through the KarmYog Education Network, this methodology has been delivered at scale — with <strong>450+ trained mentors, programs in 60+ cities, and 15+ years of curriculum development</strong> across life skills and technical vocational training.</p>
+                </div>
+
+                <div class="heritage-badges reveal reveal-delay-1">
+                    <div class="heritage-badge-card">
+                        <div class="heritage-badge-icon"><i data-lucide="award"></i></div>
+                        <div>
+                            <h4>NSDC Best Learning Methodology</h4>
+                            <p>Recognized by the National Skill Development Corporation as India's best learning methodology — validating 25+ years of pedagogical innovation.</p>
+                        </div>
+                    </div>
+                    <div class="heritage-badge-card">
+                        <div class="heritage-badge-icon"><i data-lucide="landmark"></i></div>
+                        <div>
+                            <h4>Tata Trusts — Million-Dollar Grant</h4>
+                            <p>Tata Trusts invested to scale OmniDEL's quality education platform — funding Behtar Life (life-skills) and skill mitra programs across India.</p>
+                        </div>
+                    </div>
+                    <div class="heritage-badge-card">
+                        <div class="heritage-badge-icon"><i data-lucide="users"></i></div>
+                        <div>
+                            <h4>450+ Mentors · 60+ Cities · 15+ Years</h4>
+                            <p>Delivered through the KarmYog Education Network — a pan-India infrastructure of learning junctions, multimedia labs, and on-ground teams.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="heritage-connection reveal">
+                <h3>From OmniDEL to OmniDEL.ai — The AI Evolution</h3>
+                <p>The original OmniDEL framework solved the <em>what</em> and <em>how</em> of workforce education. But reaching 50 Crore workers across hundreds of languages and literacy levels was <strong>impossible without AI</strong>. OmniDEL.ai adds the missing layer: <strong>AI-native voice and image understanding</strong> that makes this proven methodology accessible to every worker, in every language, at every literacy level — for the first time.</p>
+
+                <div class="heritage-flow">
+                    <div class="heritage-flow-step"><i data-lucide="book-open"></i> OmniDEL Methodology</div>
+                    <span class="heritage-flow-arrow"><i data-lucide="plus"></i></span>
+                    <div class="heritage-flow-step"><i data-lucide="brain"></i> AI + Voice + Vision</div>
+                    <span class="heritage-flow-arrow"><i data-lucide="equal"></i></span>
+                    <div class="heritage-flow-step"><i data-lucide="rocket"></i> OmniDEL.ai</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
     <!-- WHY US -->
     <section id="whyus">
         <div class="section-label reveal">Why Us</div>
@@ -2193,6 +2452,12 @@
 
     <footer>
         <p>&copy; 2026 JVL Management Services Pvt Ltd. All rights reserved.</p>
+        <div class="footer-karmyog">
+            <span>a</span>
+            <i data-lucide="leaf" class="ky-leaf"></i>
+            <span class="ky-name">KarmYog</span>
+            <span>Venture</span>
+        </div>
     </footer>
 
     <script>
