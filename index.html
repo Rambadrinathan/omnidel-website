@@ -2477,8 +2477,14 @@
         const isBot = /HeadlessChrome|Playwright|Puppeteer|bot|crawl|spider|slurp|mediapartners/i.test(navigator.userAgent);
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        if (isBot || prefersReducedMotion) {
+        function revealAll() {
             document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+        }
+
+        if (isBot || prefersReducedMotion) {
+            revealAll();
+            // Catch any late-rendered elements
+            requestAnimationFrame(revealAll);
         } else {
             // Intersection Observer for reveal animations
             const observer = new IntersectionObserver((entries) => {
