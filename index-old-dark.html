@@ -1,0 +1,1947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmniDEL.ai — AI-Native Gamification of Work</title>
+    <meta name="description" content="Turning India's 50 Crore invisible workers into visible champions through AI-native voice+image gamification.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #111118;
+            --bg-card: #16161f;
+            --bg-card-hover: #1c1c28;
+            --accent: #f97316;
+            --accent-light: #fb923c;
+            --accent-glow: rgba(249, 115, 22, 0.15);
+            --accent-blue: #3b82f6;
+            --accent-emerald: #10b981;
+            --accent-violet: #8b5cf6;
+            --text-primary: #f1f1f4;
+            --text-secondary: #9ca3af;
+            --text-muted: #6b7280;
+            --border: rgba(255,255,255,0.06);
+            --border-accent: rgba(249, 115, 22, 0.3);
+            --gradient-hero: linear-gradient(135deg, #0a0a0f 0%, #1a0f0a 50%, #0a0a0f 100%);
+            --gradient-accent: linear-gradient(135deg, #f97316, #ef4444);
+            --gradient-blue: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            --gradient-emerald: linear-gradient(135deg, #10b981, #06b6d4);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ========== NAVBAR ========== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 0 2rem;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(10, 10, 15, 0.95);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+        }
+
+        .nav-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-logo .dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.2s;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-links a:hover { color: var(--accent-light); }
+
+        .nav-cta {
+            background: var(--gradient-accent) !important;
+            color: white !important;
+            padding: 0.5rem 1.25rem;
+            border-radius: 8px;
+            font-weight: 600 !important;
+            transition: transform 0.2s, box-shadow 0.2s !important;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 20px rgba(249, 115, 22, 0.4);
+        }
+
+        .nav-hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+
+        .nav-hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        /* ========== SECTIONS ========== */
+        section {
+            padding: 7rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-label::before {
+            content: '';
+            display: block;
+            width: 24px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 1.25rem;
+            color: var(--text-primary);
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 640px;
+            line-height: 1.7;
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 72px;
+            background: var(--gradient-hero);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 50% 50%, rgba(249, 115, 22, 0.06) 0%, transparent 50%);
+            animation: heroGlow 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroGlow {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(2%, -2%) scale(1.05); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.25rem;
+            border-radius: 100px;
+            border: 1px solid var(--border-accent);
+            background: var(--accent-glow);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent-light);
+            margin-bottom: 2rem;
+            letter-spacing: 0.05em;
+        }
+
+        .hero-badge .pulse {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.4); }
+            50% { opacity: 0.8; box-shadow: 0 0 0 8px rgba(249, 115, 22, 0); }
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.08;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.03em;
+        }
+
+        .hero h1 .gradient-text {
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description {
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            color: var(--text-secondary);
+            max-width: 680px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.65;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 2rem;
+            background: var(--gradient-accent);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(249, 115, 22, 0.4);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 2rem;
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-secondary:hover {
+            border-color: rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.03);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            justify-content: center;
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--border);
+            flex-wrap: wrap;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat .number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .hero-stat .label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+            letter-spacing: 0.03em;
+        }
+
+        /* ========== PROBLEM ========== */
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .problem-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gradient-accent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .problem-card:hover {
+            border-color: var(--border-accent);
+            background: var(--bg-card-hover);
+            transform: translateY(-4px);
+        }
+
+        .problem-card:hover::before { opacity: 1; }
+
+        .problem-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: rgba(249, 115, 22, 0.15);
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .problem-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .problem-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .problem-card li {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            padding: 0.3rem 0;
+            padding-left: 1.25rem;
+            position: relative;
+        }
+
+        .problem-card li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.7rem;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--accent);
+            opacity: 0.5;
+        }
+
+        .problem-closing {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .problem-closing strong {
+            color: var(--accent-light);
+            font-style: normal;
+        }
+
+        /* ========== WHY NOW ========== */
+        .whynow-comparison {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+            align-items: center;
+        }
+
+        .whynow-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+        }
+
+        .whynow-box.before {
+            opacity: 0.6;
+        }
+
+        .whynow-box.after {
+            border-color: var(--border-accent);
+            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(249, 115, 22, 0.05) 100%);
+        }
+
+        .whynow-box h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .whynow-box.before h3 { color: var(--text-muted); }
+        .whynow-box.after h3 { color: var(--accent-light); }
+
+        .whynow-box li {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            padding: 0.4rem 0;
+            list-style: none;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .whynow-box.before li::before {
+            content: '✕';
+            position: absolute;
+            left: 0;
+            color: #ef4444;
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+
+        .whynow-box.after li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-emerald);
+            font-weight: 700;
+        }
+
+        .whynow-box .verdict {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+        }
+
+        .whynow-box.before .verdict { color: #ef4444; opacity: 0.6; }
+        .whynow-box.after .verdict { color: var(--accent-emerald); }
+
+        .whynow-arrow {
+            font-size: 2.5rem;
+            color: var(--accent);
+            font-weight: 300;
+        }
+
+        /* ========== OPPORTUNITY ========== */
+        .opportunity-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .opp-stat {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .opp-stat:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-accent);
+        }
+
+        .opp-stat .big-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .opp-stat:nth-child(1) .big-number { color: var(--accent); }
+        .opp-stat:nth-child(2) .big-number { color: var(--accent-blue); }
+        .opp-stat:nth-child(3) .big-number { color: var(--accent-emerald); }
+        .opp-stat:nth-child(4) .big-number { color: var(--accent-violet); }
+
+        .opp-stat .desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .opp-context {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .opp-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.5rem 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .opp-tag .icon { font-size: 0.9rem; }
+
+        /* ========== SOLUTION ========== */
+        .solution-engine {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .engine-step {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            text-align: center;
+            min-width: 110px;
+            transition: all 0.3s;
+        }
+
+        .engine-step:hover {
+            border-color: var(--border-accent);
+            transform: translateY(-3px);
+        }
+
+        .engine-step .icon { font-size: 1.5rem; margin-bottom: 0.3rem; }
+
+        .engine-step .name {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .engine-arrow {
+            color: var(--accent);
+            font-size: 1.25rem;
+            font-weight: 300;
+        }
+
+        .engine-label {
+            width: 100%;
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.25rem;
+            margin-top: 3rem;
+        }
+
+        .pillar {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.75rem 1.25rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .pillar:hover {
+            border-color: var(--border-accent);
+            transform: translateY(-4px);
+        }
+
+        .pillar .icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .pillar h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .pillar p {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .solution-callouts {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .callout-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.75rem;
+        }
+
+        .callout-box h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .callout-box p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* ========== OLYMPIAD ========== */
+        .olympiad-table-wrap {
+            margin-top: 3rem;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .olympiad-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .olympiad-table th {
+            background: var(--bg-card);
+            padding: 1rem 1.5rem;
+            text-align: left;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .olympiad-table td {
+            padding: 1.25rem 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-secondary);
+        }
+
+        .olympiad-table tr:last-child td { border-bottom: none; }
+
+        .olympiad-table td:first-child {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .olympiad-highlight {
+            margin-top: 2rem;
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.08), rgba(239, 68, 68, 0.05));
+            border: 1px solid var(--border-accent);
+            border-radius: 16px;
+            padding: 1.75rem;
+            text-align: center;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .olympiad-highlight strong {
+            color: var(--accent-light);
+        }
+
+        /* ========== LEARNING ========== */
+        .learning-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .learning-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.25rem;
+            transition: all 0.3s;
+        }
+
+        .learning-card:hover {
+            border-color: var(--border-accent);
+            transform: translateY(-3px);
+        }
+
+        .learning-card .tag {
+            display: inline-block;
+            padding: 0.3rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .learning-card:first-child .tag {
+            background: rgba(249, 115, 22, 0.1);
+            color: var(--accent-light);
+        }
+
+        .learning-card:last-child .tag {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent-blue);
+        }
+
+        .learning-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .learning-card li {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            padding: 0.35rem 0;
+            list-style: none;
+            padding-left: 1.25rem;
+            position: relative;
+        }
+
+        .learning-card li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 0.8rem;
+        }
+
+        .learning-card .stat {
+            margin-top: 1.25rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .learning-card .stat strong {
+            color: var(--accent-light);
+        }
+
+        .learning-bottom {
+            margin-top: 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .learning-bottom h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            color: var(--accent-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .learning-bottom p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ========== WHY US ========== */
+        .whyus-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .whyus-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .whyus-card:hover {
+            border-color: var(--border-accent);
+            transform: translateY(-3px);
+        }
+
+        .whyus-card .icon-wrap {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .whyus-card:nth-child(1) .icon-wrap { background: rgba(249, 115, 22, 0.1); }
+        .whyus-card:nth-child(2) .icon-wrap { background: rgba(59, 130, 246, 0.1); }
+        .whyus-card:nth-child(3) .icon-wrap { background: rgba(139, 92, 246, 0.1); }
+        .whyus-card:nth-child(4) .icon-wrap { background: rgba(16, 185, 129, 0.1); }
+
+        .whyus-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.15rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .whyus-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.65;
+        }
+
+        .whyus-highlight {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(59, 130, 246, 0.05));
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+        }
+
+        .whyus-highlight .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+            background: rgba(139, 92, 246, 0.15);
+            border: 1px solid rgba(139, 92, 246, 0.25);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--accent-violet);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .whyus-highlight h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .whyus-highlight p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .whyus-bottom {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .whyus-bottom strong {
+            color: var(--text-primary);
+            font-style: normal;
+        }
+
+        /* ========== TEAM ========== */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .team-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.25rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-card:hover {
+            border-color: var(--border-accent);
+            transform: translateY(-4px);
+        }
+
+        .team-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .team-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .team-card:nth-child(1) .team-avatar { background: rgba(249, 115, 22, 0.15); color: var(--accent); }
+        .team-card:nth-child(2) .team-avatar { background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); }
+        .team-card:nth-child(3) .team-avatar { background: rgba(139, 92, 246, 0.15); color: var(--accent-violet); }
+        .team-card:nth-child(4) .team-avatar { background: rgba(59, 130, 246, 0.15); color: var(--accent-blue); }
+
+        .team-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+        }
+
+        .team-role {
+            font-size: 0.8rem;
+            color: var(--accent-light);
+            font-weight: 500;
+            margin-top: 0.1rem;
+        }
+
+        .team-bio {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+        }
+
+        .team-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .team-tag {
+            display: inline-block;
+            padding: 0.3rem 0.7rem;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            letter-spacing: 0.03em;
+        }
+
+        /* ========== MOATS ========== */
+        .moats-list {
+            display: grid;
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .moat-item {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.75rem;
+            transition: all 0.3s;
+        }
+
+        .moat-item:hover {
+            border-color: var(--border-accent);
+            transform: translateX(4px);
+        }
+
+        .moat-num {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            opacity: 0.5;
+            min-width: 2rem;
+        }
+
+        .moat-item h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.05rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .moat-item p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* ========== GTM ========== */
+        .gtm-timeline {
+            display: flex;
+            gap: 0;
+            margin-top: 3rem;
+            position: relative;
+        }
+
+        .gtm-timeline::before {
+            content: '';
+            position: absolute;
+            top: 24px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--border);
+        }
+
+        .gtm-phase {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            padding-top: 3.5rem;
+        }
+
+        .gtm-phase .dot {
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 3px solid var(--accent);
+            background: var(--bg-primary);
+            z-index: 2;
+            transition: all 0.3s;
+        }
+
+        .gtm-phase:hover .dot {
+            background: var(--accent);
+            box-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
+        }
+
+        .gtm-phase .time {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .gtm-phase h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .gtm-phase p {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            line-height: 1.5;
+            padding: 0 0.5rem;
+        }
+
+        .gtm-viral {
+            margin-top: 3rem;
+            text-align: center;
+            padding: 1.5rem;
+            border: 1px dashed var(--border-accent);
+            border-radius: 16px;
+            background: var(--accent-glow);
+        }
+
+        .gtm-viral p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .gtm-viral strong {
+            color: var(--accent-light);
+        }
+
+        /* ========== FOOTER / CTA ========== */
+        .cta-section {
+            text-align: center;
+            padding: 8rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(249, 115, 22, 0.08) 0%, transparent 60%);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-tagline {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .cta-tagline .hindi {
+            display: block;
+            font-size: 0.6em;
+            color: var(--text-muted);
+            font-weight: 400;
+            margin-top: 0.5rem;
+        }
+
+        .cta-sub {
+            font-size: 1.2rem;
+            color: var(--accent-light);
+            margin: 1.5rem 0 2.5rem;
+            font-weight: 500;
+        }
+
+        .cta-contact {
+            margin-top: 3rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .cta-contact a {
+            color: var(--accent-light);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .cta-contact a:hover { text-decoration: underline; }
+
+        .cta-contact .name {
+            font-size: 1rem;
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* ========== ANIMATIONS ========== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+        .reveal-delay-5 { transition-delay: 0.5s; }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1024px) {
+            .pillars-grid { grid-template-columns: repeat(3, 1fr); }
+            .opportunity-stats { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            section { padding: 5rem 1.25rem; }
+
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 72px;
+                left: 0;
+                right: 0;
+                background: rgba(10, 10, 15, 0.98);
+                padding: 1.5rem 2rem;
+                gap: 1.25rem;
+                border-bottom: 1px solid var(--border);
+            }
+            .nav-hamburger { display: flex; }
+
+            .problem-grid { grid-template-columns: 1fr; }
+            .whynow-comparison {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .whynow-arrow {
+                transform: rotate(90deg);
+                text-align: center;
+            }
+            .opportunity-stats { grid-template-columns: 1fr 1fr; }
+            .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+            .solution-callouts { grid-template-columns: 1fr; }
+            .learning-grid { grid-template-columns: 1fr; }
+            .whyus-grid { grid-template-columns: 1fr; }
+            .team-grid { grid-template-columns: 1fr; }
+            .gtm-timeline {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            .gtm-timeline::before {
+                top: 0;
+                bottom: 0;
+                left: 12px;
+                width: 2px;
+                height: 100%;
+                right: auto;
+            }
+            .gtm-phase {
+                text-align: left;
+                padding-top: 0;
+                padding-left: 3.5rem;
+            }
+            .gtm-phase .dot {
+                top: 4px;
+                left: 0;
+                transform: none;
+            }
+            .hero-stats { gap: 1.5rem; }
+        }
+
+        @media (max-width: 480px) {
+            .pillars-grid { grid-template-columns: 1fr; }
+            .opportunity-stats { grid-template-columns: 1fr; }
+            .hero-cta-group { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav id="navbar">
+        <a href="#" class="nav-logo">OmniDEL<span class="dot"></span>ai</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#problem">Problem</a></li>
+            <li><a href="#opportunity">Opportunity</a></li>
+            <li><a href="#solution">Solution</a></li>
+            <li><a href="#olympiad">Olympiad</a></li>
+            <li><a href="#whyus">Why Us</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#gtm">Roadmap</a></li>
+            <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+        </ul>
+        <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-badge reveal">
+                <span class="pulse"></span>
+                AI-Native Platform
+            </div>
+            <h1 class="reveal reveal-delay-1">
+                Voice+Image <span class="gradient-text">Gamification</span><br>of Work
+            </h1>
+            <p class="hero-description reveal reveal-delay-2">
+                Turning India's 50 Crore invisible workers into visible champions — through AI that speaks their language, sees their work, and celebrates their effort.
+            </p>
+            <div class="hero-cta-group reveal reveal-delay-3">
+                <a href="#solution" class="btn-primary">Discover How →</a>
+                <a href="#contact" class="btn-secondary">Partner With Us</a>
+            </div>
+            <div class="hero-stats reveal reveal-delay-4">
+                <div class="hero-stat">
+                    <div class="number" data-count="50" data-suffix=" Cr+">0</div>
+                    <div class="label">Unorganized Workers</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="number" data-count="88" data-suffix="%">0</div>
+                    <div class="label">Informal Workforce</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="number" data-count="32" data-suffix=" Cr+">0</div>
+                    <div class="label">With Smartphones</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="number" data-count="270" data-suffix=" Cr">0</div>
+                    <div class="label">Global Blue-Collar</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section id="problem">
+        <div class="section-label reveal">The Problem</div>
+        <h2 class="section-title reveal">50 Crore workers.<br>Zero performance infrastructure.</h2>
+        <p class="section-subtitle reveal">India's backbone — the workers who build our cities, grow our food, and run our services — have no system to measure, reward, or celebrate their daily effort.</p>
+
+        <div class="problem-grid">
+            <div class="problem-card reveal reveal-delay-1">
+                <div class="problem-number">01</div>
+                <h3>Invisible Work</h3>
+                <ul>
+                    <li>No record of daily output</li>
+                    <li>Work disappears by evening</li>
+                    <li>No accountability system</li>
+                    <li>No proof of contribution</li>
+                </ul>
+            </div>
+            <div class="problem-card reveal reveal-delay-2">
+                <div class="problem-number">02</div>
+                <h3>Subjective Supervision</h3>
+                <ul>
+                    <li>Supervisors measure by memory</li>
+                    <li>Impossible to scale fairly</li>
+                    <li>Bias across language &amp; region</li>
+                    <li>No data-driven decisions</li>
+                </ul>
+            </div>
+            <div class="problem-card reveal reveal-delay-3">
+                <div class="problem-number">03</div>
+                <h3>No Motivation System</h3>
+                <ul>
+                    <li>No link between effort &amp; reward</li>
+                    <li>No performance management</li>
+                    <li>No career progression path</li>
+                    <li>No recognition of excellence</li>
+                </ul>
+            </div>
+        </div>
+
+        <p class="problem-closing reveal">This was not possible to solve without AI. <strong>Now it is.</strong></p>
+    </section>
+
+    <!-- WHY NOW -->
+    <section id="whynow">
+        <div class="section-label reveal">Why Now</div>
+        <h2 class="section-title reveal">The AI breakthrough<br>that changes everything.</h2>
+        <p class="section-subtitle reveal">For the first time in history, technology can understand any language, process visual proof, and structure goals — even for workers who can't read or write.</p>
+
+        <div class="whynow-comparison reveal">
+            <div class="whynow-box before">
+                <h3>BEFORE AI</h3>
+                <ul>
+                    <li>Different languages across India</li>
+                    <li>Illiterate and semi-literate workers</li>
+                    <li>Diverse work types, no standards</li>
+                    <li>No unified scoring possible</li>
+                </ul>
+                <div class="verdict">IMPOSSIBLE TO SCALE</div>
+            </div>
+            <div class="whynow-arrow">→</div>
+            <div class="whynow-box after">
+                <h3>WITH AI NOW</h3>
+                <ul>
+                    <li>Voice + Image-first LLMs in any language</li>
+                    <li>AI structures goals automatically</li>
+                    <li>Unified scoring across all work types</li>
+                    <li>Gamification drives engagement</li>
+                </ul>
+                <div class="verdict">SCALES GLOBALLY</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OPPORTUNITY -->
+    <section id="opportunity">
+        <div class="section-label reveal">The Opportunity</div>
+        <h2 class="section-title reveal">The largest underserved workforce<br>in the world.</h2>
+        <p class="section-subtitle reveal">88% of India's workforce operates informally — supporting 82% of the total population. They are the economy. They deserve infrastructure.</p>
+
+        <div class="opportunity-stats">
+            <div class="opp-stat reveal reveal-delay-1">
+                <div class="big-number" data-count="50" data-suffix=" Cr+">0</div>
+                <div class="desc">Unorganized workers<br>in India</div>
+            </div>
+            <div class="opp-stat reveal reveal-delay-2">
+                <div class="big-number" data-count="32" data-suffix=" Cr+">0</div>
+                <div class="desc">With smartphones<br>and growing fast</div>
+            </div>
+            <div class="opp-stat reveal reveal-delay-3">
+                <div class="big-number">₹60L Cr</div>
+                <div class="desc">Annual household<br>spend</div>
+            </div>
+            <div class="opp-stat reveal reveal-delay-4">
+                <div class="big-number" data-count="270" data-suffix=" Cr">0</div>
+                <div class="desc">Global blue-collar<br>workers</div>
+            </div>
+        </div>
+
+        <div class="opp-context reveal">
+            <span class="opp-tag"><span class="icon">📱</span> 25 Cr using UPI</span>
+            <span class="opp-tag"><span class="icon">💳</span> 1,630+ Cr UPI txns/month</span>
+            <span class="opp-tag"><span class="icon">🌏</span> India first, then global</span>
+            <span class="opp-tag"><span class="icon">📊</span> TAM: $15–20B globally</span>
+        </div>
+    </section>
+
+    <!-- SOLUTION -->
+    <section id="solution">
+        <div class="section-label reveal">Our Solution</div>
+        <h2 class="section-title reveal">"Kaam Ki Baat" — The Gamification Engine</h2>
+        <p class="section-subtitle reveal">A complete daily cycle that scores, celebrates, and rewards work. Think: Cricket Scoreboard for Daily Work.</p>
+
+        <div class="solution-engine reveal">
+            <div class="engine-step">
+                <div class="icon">🎙️</div>
+                <div class="name">Voice + Image</div>
+            </div>
+            <span class="engine-arrow">→</span>
+            <div class="engine-step">
+                <div class="icon">🎯</div>
+                <div class="name">AI Goals</div>
+            </div>
+            <span class="engine-arrow">→</span>
+            <div class="engine-step">
+                <div class="icon">📊</div>
+                <div class="name">Tracking</div>
+            </div>
+            <span class="engine-arrow">→</span>
+            <div class="engine-step">
+                <div class="icon">⭐</div>
+                <div class="name">Scoring</div>
+            </div>
+            <span class="engine-arrow">→</span>
+            <div class="engine-step">
+                <div class="icon">🏆</div>
+                <div class="name">Rewards</div>
+            </div>
+            <span class="engine-arrow">→</span>
+            <div class="engine-step">
+                <div class="icon">🎉</div>
+                <div class="name">Celebration</div>
+            </div>
+            <div class="engine-label">Complete daily cycle — workers build streaks and earn consistency bonuses</div>
+        </div>
+
+        <div class="pillars-grid">
+            <div class="pillar reveal reveal-delay-1">
+                <div class="icon">🎙️</div>
+                <h4>Voice+Image First</h4>
+                <p>Workers speak in any language. AI structures everything.</p>
+            </div>
+            <div class="pillar reveal reveal-delay-2">
+                <div class="icon">📸</div>
+                <h4>Photo-Driven</h4>
+                <p>Visual proof of work at every step.</p>
+            </div>
+            <div class="pillar reveal reveal-delay-3">
+                <div class="icon">📈</div>
+                <h4>Score-Based</h4>
+                <p>Every day, every task, every worker gets scored.</p>
+            </div>
+            <div class="pillar reveal reveal-delay-4">
+                <div class="icon">👥</div>
+                <h4>Captain / Worker</h4>
+                <p>1 captain manages 8–10 workers.</p>
+            </div>
+            <div class="pillar reveal reveal-delay-5">
+                <div class="icon">💰</div>
+                <h4>Score = Pay</h4>
+                <p>Scores directly determine earnings.</p>
+            </div>
+        </div>
+
+        <div class="solution-callouts reveal">
+            <div class="callout-box">
+                <h4>Score = Accounting</h4>
+                <p>The scoring system IS the accounting system. Solves payment disputes automatically — no arguments, just data.</p>
+            </div>
+            <div class="callout-box">
+                <h4>Cricket Scoreboard for Work</h4>
+                <p>Real-time, visible, competitive. Every worker sees where they stand — just like watching a live match.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- WORK OLYMPIAD -->
+    <section id="olympiad">
+        <div class="section-label reveal">The Work Olympiad</div>
+        <h2 class="section-title reveal">"IPL for Blue-Collar Work"</h2>
+        <p class="section-subtitle reveal">Sector leaderboards across three geographic levels — creating national-scale competition and worker pride.</p>
+
+        <div class="olympiad-table-wrap reveal">
+            <table class="olympiad-table">
+                <thead>
+                    <tr>
+                        <th>Level</th>
+                        <th>Scope</th>
+                        <th>Reward</th>
+                        <th>Impact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>🏙️ City</td>
+                        <td>Best performers by sector in each city</td>
+                        <td>Cash prizes + local recognition</td>
+                        <td>Neighborhood pride &amp; competition</td>
+                    </tr>
+                    <tr>
+                        <td>🗺️ State</td>
+                        <td>Sector champions across state</td>
+                        <td>Sponsorships + media coverage</td>
+                        <td>State-level brand building</td>
+                    </tr>
+                    <tr>
+                        <td>🇮🇳 National</td>
+                        <td>Champions across all sectors</td>
+                        <td>National campaign + brand partnerships</td>
+                        <td>National heroes from blue-collar work</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="olympiad-highlight reveal">
+            <strong>Multiple sector skill verticals × 3 geographic levels</strong><br>
+            = Hundreds of leaderboards creating national-scale competition and worker pride
+        </div>
+    </section>
+
+    <!-- LEARNING FLYWHEEL -->
+    <section id="learning">
+        <div class="section-label reveal">The Learning Flywheel</div>
+        <h2 class="section-title reveal">Gamification motivates.<br>AI enables.</h2>
+        <p class="section-subtitle reveal">Together they unlock decades of skilling curriculum for workers who never had access.</p>
+
+        <div class="learning-grid">
+            <div class="learning-card reveal">
+                <span class="tag">KarmYog Philosophy</span>
+                <h3>Life Skills</h3>
+                <ul>
+                    <li>Self-discipline &amp; accountability</li>
+                    <li>Leadership &amp; teamwork</li>
+                    <li>Communication skills</li>
+                    <li>Goal-setting &amp; time management</li>
+                </ul>
+                <div class="stat"><strong>450+ mentors</strong> · 15+ years of on-ground experience</div>
+            </div>
+            <div class="learning-card reveal reveal-delay-1">
+                <span class="tag">Technical Skills</span>
+                <h3>Industry-Validated Curriculum</h3>
+                <ul>
+                    <li>Sector-specific skill development</li>
+                    <li>15+ years of curriculum development</li>
+                    <li>Industry-validated standards</li>
+                    <li>Language-agnostic delivery via AI</li>
+                </ul>
+                <div class="stat"><strong>Government-backed</strong> · Certification pathways</div>
+            </div>
+        </div>
+
+        <div class="learning-bottom reveal">
+            <h4>The Missing Piece</h4>
+            <p>Gamification motivates learning. AI enables language access. Together they unlock 15+ years of curriculum for 50 Crore workers who were previously unreachable.</p>
+        </div>
+    </section>
+
+    <!-- WHY US -->
+    <section id="whyus">
+        <div class="section-label reveal">Why Us</div>
+        <h2 class="section-title reveal">The rare combination this<br>problem demands.</h2>
+        <p class="section-subtitle reveal">Not a startup guessing — a team that has lived this problem for three decades, now armed with cutting-edge AI.</p>
+
+        <div class="whyus-grid">
+            <div class="whyus-card reveal reveal-delay-1">
+                <div class="icon-wrap">🎓</div>
+                <h3>30 Years in Skilling &amp; Education</h3>
+                <p>Three decades of building skilling and education programs using media technology. We didn't discover this problem yesterday — we've been solving it since before the digital era.</p>
+            </div>
+            <div class="whyus-card reveal reveal-delay-2">
+                <div class="icon-wrap">🤖</div>
+                <h3>Cutting-Edge AI Builders</h3>
+                <p>We are among the <strong>top 0.1–1% of Claude Code users globally</strong> — not just experimenting with AI, but actively building and running production AI systems and applications at the absolute cutting edge.</p>
+            </div>
+            <div class="whyus-card reveal reveal-delay-3">
+                <div class="icon-wrap">⚡</div>
+                <h3>On-Ground Execution</h3>
+                <p>500+ supervised teams. Real field operations across India. We know what workers need because we've been in the field with them — not observing from a boardroom.</p>
+            </div>
+            <div class="whyus-card reveal reveal-delay-4">
+                <div class="icon-wrap">🧭</div>
+                <h3>KarmYog Foundation</h3>
+                <p>450+ mentors trained. 15+ years of life skills delivery at scale. A proven philosophy that transforms workers into leaders — now amplified by technology.</p>
+            </div>
+
+            <div class="whyus-highlight reveal">
+                <div class="badge">⚡ Technical Edge</div>
+                <h3>Top 0.1–1% of Claude Code Users Globally</h3>
+                <p>We don't just use AI — we build with it at a level that puts us among the most advanced AI practitioners in the world. Our entire agentic operating system, multi-bot infrastructure, and AI scoring engine are built and running in production. This is not a pitch about what we <em>plan</em> to build. It's already live.</p>
+            </div>
+        </div>
+
+        <p class="whyus-bottom reveal">The intersection of <strong>deep tech + deep field experience</strong> is exactly what this problem demands — and exactly what we bring.</p>
+    </section>
+
+    <!-- TEAM -->
+    <section id="team">
+        <div class="section-label reveal">Leadership</div>
+        <h2 class="section-title reveal">Three decades of learning, media &amp;<br>technology — now powered by AI.</h2>
+        <p class="section-subtitle reveal">A leadership team that has spent 30 years building education and skilling systems using media technology — and is now at the cutting edge of AI-native application development.</p>
+
+        <div class="team-grid">
+            <div class="team-card reveal reveal-delay-1">
+                <div class="team-card-header">
+                    <div class="team-avatar">SJS</div>
+                    <div>
+                        <div class="team-name">Sourabh J. Sarkar</div>
+                        <div class="team-role">Vision &amp; Strategic Advisor</div>
+                    </div>
+                </div>
+                <p class="team-bio">IIT Kharagpur alumnus who pioneered interactive multimedia for corporate training in India over 30 years ago. Delivered 200+ rich-media eLearning projects across four continents for clients including FedEx, ITC, Tata Steel, and the International Telecom Union. Founded the KarmYog Education Network and the OmniDEL methodology — which won NSDC's Best Learning Methodology award and a million-dollar Tata Trusts grant. His life's work: using media and technology to transform how India's workforce learns and grows.</p>
+                <div class="team-tags">
+                    <span class="team-tag">Interactive Media Pioneer</span>
+                    <span class="team-tag">30+ Years Education</span>
+                    <span class="team-tag">IIT Kharagpur</span>
+                    <span class="team-tag">200+ Global Projects</span>
+                </div>
+            </div>
+
+            <div class="team-card reveal reveal-delay-2">
+                <div class="team-card-header">
+                    <div class="team-avatar">RB</div>
+                    <div>
+                        <div class="team-name">Ram Badrinathan</div>
+                        <div class="team-role">Co-Founder — Technology &amp; Business Strategy</div>
+                    </div>
+                </div>
+                <p class="team-bio">NIT Surat and HKUST MBA. Former General Manager, Asia Pacific at PhocusWright — where he built the firm's entire APAC research operation and became a recognized authority on digital disruption in emerging markets. Founded GlobalTHEN to create media-rich, vernacular training for India's blue-collar workforce. Now leading OmniDEL.ai's technology and agentic AI operations — among the <strong>top 0.1–1% of Claude Code users globally</strong>, building production AI systems that score, coach, and celebrate work at scale.</p>
+                <div class="team-tags">
+                    <span class="team-tag">AI &amp; Agentic Systems</span>
+                    <span class="team-tag">Top 0.1% Claude Code</span>
+                    <span class="team-tag">HKUST MBA</span>
+                    <span class="team-tag">Media + Learning</span>
+                </div>
+            </div>
+
+            <div class="team-card reveal reveal-delay-3">
+                <div class="team-card-header">
+                    <div class="team-avatar">RS</div>
+                    <div>
+                        <div class="team-name">Reena J. Sarkar</div>
+                        <div class="team-role">Co-Founder — Operations &amp; Field Strategy</div>
+                    </div>
+                </div>
+                <p class="team-bio">Director across the KarmYog group of companies with deep operational expertise spanning education, healthcare, and management services. Leads on-ground execution — from managing 500+ supervised field teams to building the operational backbone that connects technology to real workers in real communities. The bridge between vision and field reality.</p>
+                <div class="team-tags">
+                    <span class="team-tag">Field Operations</span>
+                    <span class="team-tag">500+ Teams Managed</span>
+                    <span class="team-tag">KarmYog Group Director</span>
+                </div>
+            </div>
+
+            <div class="team-card reveal reveal-delay-4">
+                <div class="team-card-header">
+                    <div class="team-avatar">OJ</div>
+                    <div>
+                        <div class="team-name">Olivier Jager</div>
+                        <div class="team-role">Strategic Advisor</div>
+                    </div>
+                </div>
+                <p class="team-bio">Co-Founder and former CEO of ForwardKeys — the global travel analytics platform that processes worldwide flight data to predict travel demand, serving tourism boards, luxury brands, and financial institutions across 4 continents. ForwardKeys was acquired by Amadeus in 2025. A proven builder who took a data insight and turned it into a global company. Brings world-class expertise in data-driven platforms, global scaling, and turning analytics into business value.</p>
+                <div class="team-tags">
+                    <span class="team-tag">ForwardKeys Founder</span>
+                    <span class="team-tag">Acquired by Amadeus</span>
+                    <span class="team-tag">Global Data Platforms</span>
+                    <span class="team-tag">Scaling &amp; Strategy</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEFENSIBILITY -->
+    <section id="moats">
+        <div class="section-label reveal">Defensibility</div>
+        <h2 class="section-title reveal">Five compounding moats.</h2>
+        <p class="section-subtitle reveal">Every layer makes the platform stronger over time — not weaker.</p>
+
+        <div class="moats-list">
+            <div class="moat-item reveal reveal-delay-1">
+                <div class="moat-num">01</div>
+                <div>
+                    <h4>Captain Network Effect</h4>
+                    <p>More captains bring more workers. The platform grows exponentially through its own structure.</p>
+                </div>
+            </div>
+            <div class="moat-item reveal reveal-delay-2">
+                <div class="moat-num">02</div>
+                <div>
+                    <h4>Reputation Portability</h4>
+                    <p>Scores follow workers across jobs. Unlocks credit, training, and better pay — workers can't afford to leave.</p>
+                </div>
+            </div>
+            <div class="moat-item reveal reveal-delay-3">
+                <div class="moat-num">03</div>
+                <div>
+                    <h4>Gamification Lock-in</h4>
+                    <p>Scores, badges, rankings, streaks. Workers won't abandon their hard-earned history.</p>
+                </div>
+            </div>
+            <div class="moat-item reveal reveal-delay-4">
+                <div class="moat-num">04</div>
+                <div>
+                    <h4>Data Moat</h4>
+                    <p>Performance data across every sector. Enables predictions, pricing power, and an AI advantage no competitor can replicate.</p>
+                </div>
+            </div>
+            <div class="moat-item reveal reveal-delay-5">
+                <div class="moat-num">05</div>
+                <div>
+                    <h4>Geographic Density</h4>
+                    <p>Network grows exponentially once critical mass is reached in a city. First-mover advantage locks out competitors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GO-TO-MARKET -->
+    <section id="gtm">
+        <div class="section-label reveal">Go-to-Market</div>
+        <h2 class="section-title reveal">From pilot to global<br>in four phases.</h2>
+
+        <div class="gtm-timeline reveal">
+            <div class="gtm-phase">
+                <div class="dot"></div>
+                <div class="time">Now</div>
+                <h4>Pilot</h4>
+                <p>Kolkata, KarmYog Vatika — 5 teams, 30 workers</p>
+            </div>
+            <div class="gtm-phase">
+                <div class="dot"></div>
+                <div class="time">Phase 1</div>
+                <h4>City-Wide</h4>
+                <p>Kolkata — 300 teams across multiple sectors</p>
+            </div>
+            <div class="gtm-phase">
+                <div class="dot"></div>
+                <div class="time">Phase 2</div>
+                <h4>5 Cities</h4>
+                <p>Bangalore, Pune, Ahmedabad, Jaipur + Kolkata</p>
+            </div>
+            <div class="gtm-phase">
+                <div class="dot"></div>
+                <div class="time">Phase 3</div>
+                <h4>Pan-India</h4>
+                <p>All sectors, all states</p>
+            </div>
+            <div class="gtm-phase">
+                <div class="dot"></div>
+                <div class="time">Phase 4</div>
+                <h4>Global</h4>
+                <p>Pan India and global expansion</p>
+            </div>
+        </div>
+
+        <div class="gtm-viral reveal">
+            <p><strong>Viral Loop:</strong> Gamification → Competition → Word-of-mouth → Explosive organic growth</p>
+        </div>
+    </section>
+
+    <!-- CTA / CONTACT -->
+    <section class="cta-section" id="contact">
+        <div class="cta-content">
+            <div class="section-label reveal" style="justify-content: center;">OmniDEL.ai</div>
+            <h2 class="cta-tagline reveal">
+                From Kaam to Karm.<br>From Work to Purpose.
+                <span class="hindi">काम से कर्म तक।</span>
+            </h2>
+            <p class="cta-sub reveal">Let's gamify work. Together.</p>
+            <div class="reveal">
+                <a href="mailto:ram.badrinathan@jvl.run" class="btn-primary">Get in Touch →</a>
+            </div>
+            <div class="cta-contact reveal">
+                <div class="name">Ram Badrinathan</div>
+                <a href="mailto:ram.badrinathan@jvl.run">ram.badrinathan@jvl.run</a><br>
+                <span style="margin-top: 0.25rem; display: inline-block;">JVL Management Services Pvt Ltd · Kolkata, India</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 JVL Management Services Pvt Ltd. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Intersection Observer for reveal animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Animated counters
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.dataset.counted) {
+                    entry.target.dataset.counted = 'true';
+                    const target = parseInt(entry.target.dataset.count);
+                    const suffix = entry.target.dataset.suffix || '';
+                    if (!target) return;
+                    const duration = 2000;
+                    const start = performance.now();
+
+                    function update(now) {
+                        const elapsed = now - start;
+                        const progress = Math.min(elapsed / duration, 1);
+                        const eased = 1 - Math.pow(1 - progress, 3);
+                        const current = Math.floor(eased * target);
+                        entry.target.textContent = current + suffix;
+                        if (progress < 1) requestAnimationFrame(update);
+                    }
+                    requestAnimationFrame(update);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Mobile menu
+        document.getElementById('hamburger').addEventListener('click', () => {
+            document.getElementById('navLinks').classList.toggle('open');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('open');
+            });
+        });
+    </script>
+</body>
+</html>
