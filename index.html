@@ -7,7 +7,7 @@
     <meta name="description" content="Turning India's 50 Crore invisible workers into visible champions through AI-native voice+image gamification.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
@@ -1775,61 +1775,19 @@
         }
 
         /* ===== OMNIDEL INVESTOR REDESIGN ===== */
-        body { font-family: 'DM Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-size: 19px; line-height: 1.75; }
-        h1, h2, h3 { font-family: 'Syne', 'Space Grotesk', sans-serif; letter-spacing: -0.02em; }
-        .hero h1 {
-            font-family: 'Syne', sans-serif !important;
-            font-size: clamp(64px, 8vw, 108px) !important;
-            font-weight: 900 !important;
-            line-height: 1.0 !important;
-            letter-spacing: -0.03em !important;
-        }
-        .section-title {
-            font-family: 'Syne', sans-serif !important;
-            font-size: clamp(44px, 5vw, 72px) !important;
-            font-weight: 800 !important;
-            line-height: 1.1 !important;
-        }
-        h3 { font-size: clamp(26px, 3vw, 38px); font-weight: 700; line-height: 1.25; }
-        .section-subtitle, .hero-description {
-            font-size: clamp(17px, 1.8vw, 21px) !important;
-            line-height: 1.75 !important;
-            max-width: 700px;
-        }
-        .hero-stat .number, [data-count], .big-number {
-            font-family: 'Syne', sans-serif !important;
-            font-size: clamp(48px, 6vw, 72px) !important;
-            font-weight: 900 !important;
-            line-height: 1.0 !important;
-        }
-        .section-label {
-            font-size: 13px !important;
-            font-weight: 700 !important;
-            letter-spacing: 0.14em !important;
-        }
-        .nav-links a { font-size: 16px !important; font-weight: 600 !important; }
-        .nav-logo { font-size: 22px !important; font-weight: 900 !important; }
-        nav#navbar { min-height: 72px !important; padding: 0 48px !important; }
+        /* Typography — keep original fonts, just refine sizes slightly */
 
-        /* Icon upgrades */
+        /* Icon upgrades — subtle */
         .hero-illus-item {
-            padding: 28px 24px !important;
-            border-radius: 20px !important;
-            min-width: 160px;
             transition: transform 0.25s ease, box-shadow 0.25s ease !important;
         }
         .hero-illus-item:hover {
-            transform: translateY(-6px) scale(1.04);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.1);
         }
         .hero-illus-item i, .hero-illus-item svg {
-            width: 56px !important;
-            height: 56px !important;
-            margin-bottom: 12px;
-        }
-        .hero-illus-item .illus-label {
-            font-size: 0.9rem !important;
-            font-weight: 700 !important;
+            width: 36px !important;
+            height: 36px !important;
         }
 
         /* Problem section — DARK */
@@ -1908,29 +1866,7 @@
         }
         #olympiad h3, #olympiad h4 { color: #F0FDF4 !important; }
 
-        /* Hero CTA upgrades */
-        .btn-primary {
-            background: #1B5E38 !important;
-            padding: 20px 40px !important;
-            border-radius: 14px !important;
-            font-family: 'DM Sans', sans-serif !important;
-            font-size: 18px !important;
-            font-weight: 700 !important;
-            box-shadow: 0 4px 24px rgba(27,94,56,0.35) !important;
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px) !important;
-            box-shadow: 0 8px 32px rgba(27,94,56,0.45) !important;
-        }
-        .btn-secondary {
-            padding: 20px 40px !important;
-            border-radius: 14px !important;
-            font-family: 'DM Sans', sans-serif !important;
-            font-size: 18px !important;
-            font-weight: 700 !important;
-            color: #1B5E38 !important;
-            border: 2px solid #1B5E38 !important;
-        }
+        /* Hero CTA — keep original sizing, just refine colors */
 
         /* Trust Bar */
         .trust-bar {
@@ -2004,38 +1940,11 @@
             50% { opacity: 0.6; transform: scale(0.85); }
         }
 
-        /* Team upgrades */
-        .team-avatar {
-            width: 96px !important;
-            height: 96px !important;
-            border-radius: 50% !important;
-            font-size: 32px !important;
-            font-weight: 900 !important;
-            font-family: 'Syne', sans-serif !important;
-            border: 3px solid rgba(27,94,56,0.2) !important;
-            margin-bottom: 20px;
-        }
-        .team-tag {
-            display: inline-block;
-            background: rgba(27,94,56,0.08) !important;
-            color: #166534 !important;
-            border: 1px solid rgba(27,94,56,0.15) !important;
-            border-radius: 6px !important;
-            padding: 4px 10px !important;
-            font-size: 12px !important;
-            font-weight: 700 !important;
-        }
+        /* Team — subtle hover only */
         .team-card {
-            border-radius: 20px !important;
-            padding: 40px 32px !important;
             transition: transform 0.25s ease, box-shadow 0.25s ease !important;
         }
-        .team-card:hover { transform: translateY(-8px); box-shadow: 0 24px 60px rgba(0,0,0,0.1) !important; }
-        .section-bg-green:has(#team) .team-tag {
-            background: rgba(255,255,255,0.1) !important;
-            color: #D1FAE5 !important;
-            border-color: rgba(255,255,255,0.15) !important;
-        }
+        .team-card:hover { transform: translateY(-4px); }
 
         /* Invest section */
         #invest {
@@ -2063,8 +1972,8 @@
         .invest-card:hover { transform: translateY(-6px); box-shadow: 0 20px 56px rgba(0,0,0,0.09); }
         .invest-card-emoji { font-size: 40px; margin-bottom: 16px; }
         .invest-card h3 {
-            font-family: 'Syne', sans-serif;
-            font-size: 24px !important; font-weight: 800; color: #0C1810; margin-bottom: 12px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem !important; font-weight: 700; color: #0C1810; margin-bottom: 12px;
         }
         .invest-card p { color: #4B5563; font-size: 16px !important; line-height: 1.65; max-width: none; }
         .invest-dark-cta {
@@ -2107,37 +2016,11 @@
             margin: 0 auto 16px;
         }
 
-        /* Section padding */
-        section { padding: 100px 48px !important; }
-        .section-bg-warm > section, .section-bg-green > section { padding: 100px 48px !important; }
-
-        /* Cards global */
-        [class*="card"] {
-            border-radius: 20px !important;
-            transition: transform 0.25s ease, box-shadow 0.25s ease !important;
-        }
-        [class*="card"]:hover {
-            box-shadow: 0 20px 56px rgba(0,0,0,0.09) !important;
-        }
-
-        /* Navbar scrolled */
-        #navbar.scrolled {
-            backdrop-filter: blur(16px) !important;
-            box-shadow: 0 1px 24px rgba(0,0,0,0.08) !important;
-        }
-
-        /* Mobile */
+        /* Mobile responsive for new elements */
         @media (max-width: 768px) {
-            section { padding: 72px 24px !important; }
-            .section-bg-warm > section, .section-bg-green > section { padding: 72px 24px !important; }
-            #problem, #olympiad { padding: 72px 24px !important; }
+            #problem, #olympiad { padding: 5rem 1.5rem !important; }
         }
         @media (max-width: 600px) {
-            .hero h1 { font-size: 56px !important; }
-            .section-title { font-size: 40px !important; }
-            .hero-stat .number, [data-count] { font-size: 48px !important; }
-            section { padding: 64px 20px !important; }
-            #problem, #olympiad { padding: 64px 20px !important; }
             .trust-items { gap: 24px; }
             .trust-divider { display: none; }
             .invest-dark-cta { padding: 40px 24px; }
@@ -2703,7 +2586,7 @@
 
         <div class="invest-dark-cta reveal">
             <p style="color:#86EFAC;font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin:0;">Seed Round Open</p>
-            <h3 style="font-family:'Syne',sans-serif;font-size:36px;font-weight:900;color:white;margin:0;line-height:1.2;">
+            <h3 style="font-family:'Space Grotesk',sans-serif;font-size:36px;font-weight:900;color:white;margin:0;line-height:1.2;">
                 Join us at the ground floor of a $15–20B opportunity
             </h3>
             <p style="color:#D1FAE5;font-size:17px;margin:0;line-height:1.65;">
@@ -2889,25 +2772,25 @@
                 <div class="gtm-visual-phase">
                     <div class="gtm-visual-dot" style="background:#22C55E;box-shadow:0 0 0 6px rgba(34,197,94,0.15);">1</div>
                     <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#22C55E;margin-bottom:6px;">NOW</div>
-                    <div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:800;margin-bottom:6px;">Pilot</div>
+                    <div style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:800;margin-bottom:6px;">Pilot</div>
                     <div style="font-size:14px;color:#6B7280;">Kolkata · 5 teams · 30 workers</div>
                 </div>
                 <div class="gtm-visual-phase">
                     <div class="gtm-visual-dot" style="background:#3B82F6;box-shadow:0 0 0 6px rgba(59,130,246,0.15);">2</div>
                     <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#3B82F6;margin-bottom:6px;">PHASE 1</div>
-                    <div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:800;margin-bottom:6px;">City-Wide</div>
+                    <div style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:800;margin-bottom:6px;">City-Wide</div>
                     <div style="font-size:14px;color:#6B7280;">Kolkata · 300 teams</div>
                 </div>
                 <div class="gtm-visual-phase">
                     <div class="gtm-visual-dot" style="background:#8B5CF6;box-shadow:0 0 0 6px rgba(139,92,246,0.15);">3</div>
                     <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#8B5CF6;margin-bottom:6px;">PHASE 2</div>
-                    <div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:800;margin-bottom:6px;">5 Cities</div>
+                    <div style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:800;margin-bottom:6px;">5 Cities</div>
                     <div style="font-size:14px;color:#6B7280;">Bangalore · Pune · Ahmedabad · Jaipur</div>
                 </div>
                 <div class="gtm-visual-phase">
                     <div class="gtm-visual-dot" style="background:#F59E0B;box-shadow:0 0 0 6px rgba(245,158,11,0.15);">4</div>
                     <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#F59E0B;margin-bottom:6px;">PHASE 3–4</div>
-                    <div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:800;margin-bottom:6px;">Pan-India → Global</div>
+                    <div style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:800;margin-bottom:6px;">Pan-India → Global</div>
                     <div style="font-size:14px;color:#6B7280;">All sectors · All states · $15–20B TAM</div>
                 </div>
             </div>
