@@ -7,7 +7,7 @@
     <meta name="description" content="Turning India's 50 Crore invisible workers into visible champions through AI-native voice+image gamification.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
@@ -1773,6 +1773,378 @@
             .hero-cta-group { flex-direction: column; align-items: center; }
             .hero-illus-item { padding: 1rem; }
         }
+
+        /* ===== OMNIDEL INVESTOR REDESIGN ===== */
+        body { font-family: 'DM Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-size: 19px; line-height: 1.75; }
+        h1, h2, h3 { font-family: 'Syne', 'Space Grotesk', sans-serif; letter-spacing: -0.02em; }
+        .hero h1 {
+            font-family: 'Syne', sans-serif !important;
+            font-size: clamp(64px, 8vw, 108px) !important;
+            font-weight: 900 !important;
+            line-height: 1.0 !important;
+            letter-spacing: -0.03em !important;
+        }
+        .section-title {
+            font-family: 'Syne', sans-serif !important;
+            font-size: clamp(44px, 5vw, 72px) !important;
+            font-weight: 800 !important;
+            line-height: 1.1 !important;
+        }
+        h3 { font-size: clamp(26px, 3vw, 38px); font-weight: 700; line-height: 1.25; }
+        .section-subtitle, .hero-description {
+            font-size: clamp(17px, 1.8vw, 21px) !important;
+            line-height: 1.75 !important;
+            max-width: 700px;
+        }
+        .hero-stat .number, [data-count], .big-number {
+            font-family: 'Syne', sans-serif !important;
+            font-size: clamp(48px, 6vw, 72px) !important;
+            font-weight: 900 !important;
+            line-height: 1.0 !important;
+        }
+        .section-label {
+            font-size: 13px !important;
+            font-weight: 700 !important;
+            letter-spacing: 0.14em !important;
+        }
+        .nav-links a { font-size: 16px !important; font-weight: 600 !important; }
+        .nav-logo { font-size: 22px !important; font-weight: 900 !important; }
+        nav#navbar { min-height: 72px !important; padding: 0 48px !important; }
+
+        /* Icon upgrades */
+        .hero-illus-item {
+            padding: 28px 24px !important;
+            border-radius: 20px !important;
+            min-width: 160px;
+            transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+        }
+        .hero-illus-item:hover {
+            transform: translateY(-6px) scale(1.04);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+        }
+        .hero-illus-item i, .hero-illus-item svg {
+            width: 56px !important;
+            height: 56px !important;
+            margin-bottom: 12px;
+        }
+        .hero-illus-item .illus-label {
+            font-size: 0.9rem !important;
+            font-weight: 700 !important;
+        }
+
+        /* Problem section — DARK */
+        #problem {
+            background: #0C1810 !important;
+            color: #F9FAF8 !important;
+            max-width: 100% !important;
+            padding: 100px 48px !important;
+        }
+        #problem > * { max-width: 1200px; margin-left: auto; margin-right: auto; }
+        #problem .section-title, #problem h2 { color: #F9FAF8 !important; }
+        #problem .section-subtitle, #problem p { color: #D1D5DB !important; }
+        #problem .section-label { color: #4ADE80 !important; }
+        #problem .section-label::before { background: #4ADE80 !important; }
+        #problem .problem-card {
+            background: rgba(255,255,255,0.05) !important;
+            border: 1px solid rgba(255,255,255,0.1) !important;
+        }
+        #problem .problem-card:hover {
+            background: rgba(255,255,255,0.08) !important;
+            border-color: rgba(255,255,255,0.2) !important;
+        }
+        #problem .problem-card h3 { color: #F9FAF8 !important; }
+        #problem .problem-card:nth-child(1) h3 { color: #FCA5A5 !important; }
+        #problem .problem-card:nth-child(2) h3 { color: #FCD34D !important; }
+        #problem .problem-card:nth-child(3) h3 { color: #93C5FD !important; }
+        #problem .problem-card li { color: #D1D5DB !important; }
+        #problem .problem-card li::before { background: #4ADE80 !important; opacity: 0.8 !important; }
+        #problem .problem-card::before { background: none !important; }
+        #problem .problem-icon { border: 1px solid rgba(255,255,255,0.1); }
+        #problem .problem-card:nth-child(1) .problem-icon { background: rgba(252,165,165,0.12) !important; color: #FCA5A5 !important; }
+        #problem .problem-card:nth-child(2) .problem-icon { background: rgba(252,211,77,0.12) !important; color: #FCD34D !important; }
+        #problem .problem-card:nth-child(3) .problem-icon { background: rgba(147,197,253,0.12) !important; color: #93C5FD !important; }
+        #problem .problem-closing { color: #D1D5DB !important; }
+        #problem .problem-closing strong { color: #4ADE80 !important; }
+
+        /* Why Now — dark navy */
+        .section-bg-warm:has(#whynow) {
+            background: linear-gradient(135deg, #0F172A 0%, #0C2340 100%) !important;
+        }
+        #whynow { color: #F8FAFC !important; }
+        #whynow .section-title { color: #F8FAFC !important; }
+        #whynow .section-subtitle { color: #CBD5E1 !important; }
+        #whynow .section-label { color: #60A5FA !important; }
+        #whynow .section-label::before { background: #60A5FA !important; }
+        #whynow .whynow-box {
+            background: rgba(255,255,255,0.05) !important;
+            border-color: rgba(255,255,255,0.1) !important;
+        }
+        #whynow .whynow-box h3 { color: #94A3B8 !important; }
+        #whynow .whynow-box.after h3 { color: #60A5FA !important; }
+        #whynow .whynow-box li { color: #CBD5E1 !important; }
+        #whynow .whynow-box .verdict { border-color: rgba(255,255,255,0.1) !important; }
+        #whynow .whynow-box.before .verdict { color: #F87171 !important; }
+        #whynow .whynow-box.after .verdict { color: #4ADE80 !important; }
+        #whynow .whynow-arrow { border-color: rgba(255,255,255,0.1) !important; background: rgba(255,255,255,0.05) !important; }
+
+        /* Olympiad — dark green */
+        #olympiad {
+            background: linear-gradient(160deg, #052E16 0%, #14532D 60%, #0F2318 100%) !important;
+            color: #F0FDF4 !important;
+            max-width: 100% !important;
+            padding: 100px 48px !important;
+        }
+        #olympiad > * { max-width: 1200px; margin-left: auto; margin-right: auto; }
+        #olympiad .section-title { color: #F0FDF4 !important; }
+        #olympiad .section-subtitle { color: #BBF7D0 !important; }
+        #olympiad .section-label { color: #86EFAC !important; }
+        #olympiad .section-label::before { background: #86EFAC !important; }
+        #olympiad p, #olympiad li, #olympiad td, #olympiad th { color: #F0FDF4 !important; }
+        #olympiad table { border-color: rgba(255,255,255,0.15) !important; }
+        #olympiad td, #olympiad th { border-color: rgba(255,255,255,0.1) !important; }
+        #olympiad [class*="card"], #olympiad .olympiad-card {
+            background: rgba(255,255,255,0.06) !important;
+            border-color: rgba(255,255,255,0.12) !important;
+        }
+        #olympiad h3, #olympiad h4 { color: #F0FDF4 !important; }
+
+        /* Hero CTA upgrades */
+        .btn-primary {
+            background: #1B5E38 !important;
+            padding: 20px 40px !important;
+            border-radius: 14px !important;
+            font-family: 'DM Sans', sans-serif !important;
+            font-size: 18px !important;
+            font-weight: 700 !important;
+            box-shadow: 0 4px 24px rgba(27,94,56,0.35) !important;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 8px 32px rgba(27,94,56,0.45) !important;
+        }
+        .btn-secondary {
+            padding: 20px 40px !important;
+            border-radius: 14px !important;
+            font-family: 'DM Sans', sans-serif !important;
+            font-size: 18px !important;
+            font-weight: 700 !important;
+            color: #1B5E38 !important;
+            border: 2px solid #1B5E38 !important;
+        }
+
+        /* Trust Bar */
+        .trust-bar {
+            margin-top: 64px;
+            padding: 32px 40px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 20px;
+            border: 1px solid rgba(0,0,0,0.06);
+            backdrop-filter: blur(8px);
+        }
+        .trust-bar-label {
+            text-align: center;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #6B7280;
+            margin-bottom: 24px;
+        }
+        .trust-items {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+        .trust-item { text-align: center; }
+        .trust-item-name {
+            font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+            text-transform: uppercase; color: #374151; opacity: 0.7;
+        }
+        .trust-item-desc { font-size: 10px; color: #6B7280; margin-top: 2px; }
+        .trust-divider { width: 1px; height: 32px; background: #E5E7EB; }
+
+        /* Nav Investor CTA */
+        .nav-investor-cta {
+            padding: 10px 22px;
+            border-radius: 10px;
+            font-size: 15px !important;
+            font-weight: 600 !important;
+            color: #1B5E38 !important;
+            text-decoration: none;
+            border: 1.5px solid #1B5E38;
+            margin-right: 8px;
+            transition: all 0.2s;
+        }
+        .nav-investor-cta:hover { background: #f0fdf4; }
+
+        /* Live Pilot Badge */
+        .live-pilot-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(34,197,94,0.12);
+            border: 1px solid rgba(34,197,94,0.3);
+            border-radius: 100px;
+            padding: 8px 16px;
+            margin-bottom: 24px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #166534;
+        }
+        .live-pilot-dot {
+            width: 8px; height: 8px; border-radius: 50%;
+            background: #22C55E;
+            animation: pulse-dot 2s ease-in-out infinite;
+            display: inline-block;
+        }
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(0.85); }
+        }
+
+        /* Team upgrades */
+        .team-avatar {
+            width: 96px !important;
+            height: 96px !important;
+            border-radius: 50% !important;
+            font-size: 32px !important;
+            font-weight: 900 !important;
+            font-family: 'Syne', sans-serif !important;
+            border: 3px solid rgba(27,94,56,0.2) !important;
+            margin-bottom: 20px;
+        }
+        .team-tag {
+            display: inline-block;
+            background: rgba(27,94,56,0.08) !important;
+            color: #166534 !important;
+            border: 1px solid rgba(27,94,56,0.15) !important;
+            border-radius: 6px !important;
+            padding: 4px 10px !important;
+            font-size: 12px !important;
+            font-weight: 700 !important;
+        }
+        .team-card {
+            border-radius: 20px !important;
+            padding: 40px 32px !important;
+            transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+        }
+        .team-card:hover { transform: translateY(-8px); box-shadow: 0 24px 60px rgba(0,0,0,0.1) !important; }
+        .section-bg-green:has(#team) .team-tag {
+            background: rgba(255,255,255,0.1) !important;
+            color: #D1FAE5 !important;
+            border-color: rgba(255,255,255,0.15) !important;
+        }
+
+        /* Invest section */
+        #invest {
+            background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 50%, #F0FDF4 100%);
+            padding: 120px 48px;
+            text-align: center;
+            max-width: 100%;
+        }
+        #invest > * { max-width: 1200px; margin-left: auto; margin-right: auto; }
+        .invest-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto 64px;
+        }
+        .invest-card {
+            background: white;
+            border-radius: 20px !important;
+            padding: 40px 32px;
+            border: 1px solid #D1FAE5;
+            text-align: left;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .invest-card:hover { transform: translateY(-6px); box-shadow: 0 20px 56px rgba(0,0,0,0.09); }
+        .invest-card-emoji { font-size: 40px; margin-bottom: 16px; }
+        .invest-card h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 24px !important; font-weight: 800; color: #0C1810; margin-bottom: 12px;
+        }
+        .invest-card p { color: #4B5563; font-size: 16px !important; line-height: 1.65; max-width: none; }
+        .invest-dark-cta {
+            background: #0C1810;
+            border-radius: 24px;
+            padding: 56px 48px;
+            max-width: 700px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+
+        /* GTM visual timeline */
+        .gtm-visual-timeline {
+            display: flex;
+            align-items: flex-start;
+            gap: 0;
+            margin-top: 56px;
+            position: relative;
+            overflow-x: auto;
+            padding-bottom: 8px;
+        }
+        .gtm-timeline-line {
+            position: absolute;
+            top: 28px; left: 10%; right: 10%;
+            height: 3px;
+            background: linear-gradient(90deg, #22C55E, #3B82F6, #8B5CF6, #F59E0B);
+            z-index: 0;
+        }
+        .gtm-visual-phase {
+            flex: 1; text-align: center;
+            position: relative; z-index: 1; padding: 0 16px;
+        }
+        .gtm-visual-dot {
+            width: 56px; height: 56px; border-radius: 50%;
+            color: white; font-size: 20px; font-weight: 900;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 16px;
+        }
+
+        /* Section padding */
+        section { padding: 100px 48px !important; }
+        .section-bg-warm > section, .section-bg-green > section { padding: 100px 48px !important; }
+
+        /* Cards global */
+        [class*="card"] {
+            border-radius: 20px !important;
+            transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+        }
+        [class*="card"]:hover {
+            box-shadow: 0 20px 56px rgba(0,0,0,0.09) !important;
+        }
+
+        /* Navbar scrolled */
+        #navbar.scrolled {
+            backdrop-filter: blur(16px) !important;
+            box-shadow: 0 1px 24px rgba(0,0,0,0.08) !important;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            section { padding: 72px 24px !important; }
+            .section-bg-warm > section, .section-bg-green > section { padding: 72px 24px !important; }
+            #problem, #olympiad { padding: 72px 24px !important; }
+        }
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 56px !important; }
+            .section-title { font-size: 40px !important; }
+            .hero-stat .number, [data-count] { font-size: 48px !important; }
+            section { padding: 64px 20px !important; }
+            #problem, #olympiad { padding: 64px 20px !important; }
+            .trust-items { gap: 24px; }
+            .trust-divider { display: none; }
+            .invest-dark-cta { padding: 40px 24px; }
+            .gtm-visual-timeline { flex-direction: column; align-items: center; }
+            .gtm-timeline-line { display: none; }
+        }
+
     </style>
 </head>
 <body>
@@ -1789,6 +2161,7 @@
             <li><a href="#whyus">Why Us</a></li>
             <li><a href="#team">Team</a></li>
             <li><a href="#gtm">Roadmap</a></li>
+            <li><a href="#invest" class="nav-investor-cta">Investor Deck ↗</a></li>
             <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
         </ul>
         <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
@@ -1800,9 +2173,9 @@
     <div class="hero-wrapper">
         <section class="hero" id="hero">
             <div class="hero-content">
-                <div class="hero-badge reveal">
-                    <span class="pulse"></span>
-                    AI-Native Platform
+                <div class="live-pilot-badge reveal">
+                    <span class="live-pilot-dot"></span>
+                    Live Pilot — Kolkata, 30 workers onboarded
                 </div>
                 <div class="karmyog-badge reveal">
                     <span>a</span>
@@ -1819,8 +2192,8 @@
                     Turning India's 50 Crore invisible workers into visible champions — through AI that speaks their language, sees their work, and celebrates their effort.
                 </p>
                 <div class="hero-cta-group reveal reveal-delay-3">
-                    <a href="#solution" class="btn-primary">Discover How <i data-lucide="arrow-right" style="width:18px;height:18px"></i></a>
-                    <a href="#contact" class="btn-secondary">Partner With Us</a>
+                    <a href="#contact" class="btn-primary">Book an Investor Call →</a>
+                    <a href="#solution" class="btn-secondary">See How It Works</a>
                 </div>
 
                 <!-- Hero visual strip -->
@@ -1863,6 +2236,36 @@
                     <div class="hero-stat">
                         <div class="number" data-count="270" data-suffix=" Cr">0</div>
                         <div class="label">Global Blue-Collar</div>
+                    </div>
+
+                <!-- Trust Bar -->
+                <div class="trust-bar reveal">
+                    <p class="trust-bar-label">Backed by 30 years of institutional recognition</p>
+                    <div class="trust-items">
+                        <div class="trust-item">
+                            <div class="trust-item-name">NSDC</div>
+                            <div class="trust-item-desc">Best Learning Methodology</div>
+                        </div>
+                        <div class="trust-divider"></div>
+                        <div class="trust-item">
+                            <div class="trust-item-name">Tata Trusts</div>
+                            <div class="trust-item-desc">Million-Dollar Grant</div>
+                        </div>
+                        <div class="trust-divider"></div>
+                        <div class="trust-item">
+                            <div class="trust-item-name">IIT Kharagpur</div>
+                            <div class="trust-item-desc">Founder Alumni</div>
+                        </div>
+                        <div class="trust-divider"></div>
+                        <div class="trust-item">
+                            <div class="trust-item-name">HKUST MBA</div>
+                            <div class="trust-item-desc">Co-Founder</div>
+                        </div>
+                        <div class="trust-divider"></div>
+                        <div class="trust-item">
+                            <div class="trust-item-name">Amadeus</div>
+                            <div class="trust-item-desc">Advisor: ForwardKeys Founder</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2269,6 +2672,54 @@
         <p class="whyus-bottom reveal">The intersection of <strong>deep tech + deep field experience</strong> is exactly what this problem demands — and exactly what we bring.</p>
     </section>
 
+
+    <!-- INVESTOR SECTION -->
+    <section id="invest">
+        <p style="font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#16A34A;margin-bottom:16px;">Investment Opportunity</p>
+        <h2 class="section-title reveal" style="color:#0C1810;">Why Invest in OmniDEL.ai Now</h2>
+        <p class="section-subtitle reveal" style="font-size:20px;color:#374151;max-width:640px;margin:0 auto 64px;line-height:1.7;text-align:center;">
+            Three forces converging for the first time: AI that works in any language,
+            32 Crore workers with smartphones, and 30 years of on-ground infrastructure.
+            The window is now.
+        </p>
+
+        <div class="invest-cards">
+            <div class="invest-card reveal reveal-delay-1">
+                <div class="invest-card-emoji">⚡</div>
+                <h3>Market Timing</h3>
+                <p>AI breakthrough + UPI adoption + 32Cr smartphone workers = a moment that won't repeat. First mover wins the data moat forever.</p>
+            </div>
+            <div class="invest-card reveal reveal-delay-2">
+                <div class="invest-card-emoji">🚀</div>
+                <h3>Live &amp; Proven</h3>
+                <p>Pilot is live in Kolkata. 30 workers. Real scoring. Real pay. Not a concept — a working system being validated in the field today.</p>
+            </div>
+            <div class="invest-card reveal reveal-delay-3">
+                <div class="invest-card-emoji">🏆</div>
+                <h3>30-Year Heritage</h3>
+                <p>NSDC award. Tata Trusts grant. IIT + HKUST founding team. 450 mentors. 60+ cities. The infrastructure exists — AI is the multiplier.</p>
+            </div>
+        </div>
+
+        <div class="invest-dark-cta reveal">
+            <p style="color:#86EFAC;font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin:0;">Seed Round Open</p>
+            <h3 style="font-family:'Syne',sans-serif;font-size:36px;font-weight:900;color:white;margin:0;line-height:1.2;">
+                Join us at the ground floor of a $15–20B opportunity
+            </h3>
+            <p style="color:#D1FAE5;font-size:17px;margin:0;line-height:1.65;">
+                We're looking for partners who understand that the informal economy
+                is not a charity — it's the largest untapped market in Asia.
+            </p>
+            <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:8px;">
+                <a href="mailto:ram.badrinathan@jvl.run?subject=Investment Inquiry — OmniDEL.ai" style="background:#22C55E;color:#052E16;padding:18px 36px;border-radius:12px;font-size:17px;font-weight:700;text-decoration:none;transition:all 0.2s;">Request Investment Deck →</a>
+                <a href="mailto:ram.badrinathan@jvl.run?subject=Partnership Inquiry — OmniDEL.ai" style="background:transparent;color:white;padding:18px 36px;border-radius:12px;font-size:17px;font-weight:700;text-decoration:none;border:2px solid rgba(255,255,255,0.3);">Explore Partnership</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TODO: Replace avatar initials with actual headshot photos.
+     Recommended: 400x400px, professional quality, circular crop.
+     File naming: team-sourabh.jpg, team-ram.jpg, team-reena.jpg, team-olivier.jpg -->
     <!-- TEAM -->
     <div class="section-bg-green">
         <section id="team">
@@ -2431,6 +2882,36 @@
                 </div>
             </div>
 
+
+            <!-- Visual Timeline -->
+            <div class="gtm-visual-timeline reveal">
+                <div class="gtm-timeline-line"></div>
+                <div class="gtm-visual-phase">
+                    <div class="gtm-visual-dot" style="background:#22C55E;box-shadow:0 0 0 6px rgba(34,197,94,0.15);">1</div>
+                    <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#22C55E;margin-bottom:6px;">NOW</div>
+                    <div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:800;margin-bottom:6px;">Pilot</div>
+                    <div style="font-size:14px;color:#6B7280;">Kolkata · 5 teams · 30 workers</div>
+                </div>
+                <div class="gtm-visual-phase">
+                    <div class="gtm-visual-dot" style="background:#3B82F6;box-shadow:0 0 0 6px rgba(59,130,246,0.15);">2</div>
+                    <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#3B82F6;margin-bottom:6px;">PHASE 1</div>
+                    <div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:800;margin-bottom:6px;">City-Wide</div>
+                    <div style="font-size:14px;color:#6B7280;">Kolkata · 300 teams</div>
+                </div>
+                <div class="gtm-visual-phase">
+                    <div class="gtm-visual-dot" style="background:#8B5CF6;box-shadow:0 0 0 6px rgba(139,92,246,0.15);">3</div>
+                    <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#8B5CF6;margin-bottom:6px;">PHASE 2</div>
+                    <div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:800;margin-bottom:6px;">5 Cities</div>
+                    <div style="font-size:14px;color:#6B7280;">Bangalore · Pune · Ahmedabad · Jaipur</div>
+                </div>
+                <div class="gtm-visual-phase">
+                    <div class="gtm-visual-dot" style="background:#F59E0B;box-shadow:0 0 0 6px rgba(245,158,11,0.15);">4</div>
+                    <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#F59E0B;margin-bottom:6px;">PHASE 3–4</div>
+                    <div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:800;margin-bottom:6px;">Pan-India → Global</div>
+                    <div style="font-size:14px;color:#6B7280;">All sectors · All states · $15–20B TAM</div>
+                </div>
+            </div>
+
             <div class="gtm-viral reveal">
                 <p><strong>Viral Loop:</strong> Gamification → Competition → Word-of-mouth → Explosive organic growth</p>
             </div>
@@ -2472,6 +2953,33 @@
     <script>
         // Initialize Lucide icons
         lucide.createIcons();
+
+        // Colorise feature icons by label text
+        const iconColorMap = {
+            'voice': '#10B981',
+            'photo': '#F59E0B',
+            'scoring': '#3B82F6',
+            'ai': '#3B82F6',
+            'gamification': '#8B5CF6',
+            'score': '#EAB308',
+            'pay': '#EAB308',
+            'captain': '#14B8A6',
+            'tracking': '#06B6D4',
+            'rewards': '#F97316',
+            'celebration': '#EC4899',
+        };
+        document.querySelectorAll('.hero-illus-item').forEach(function(card) {
+            var label = card.textContent.toLowerCase();
+            var svg = card.querySelector('svg');
+            if (!svg) return;
+            for (var key in iconColorMap) {
+                if (label.indexOf(key) !== -1) {
+                    svg.style.color = iconColorMap[key];
+                    svg.style.filter = 'drop-shadow(0 0 8px ' + iconColorMap[key] + '40)';
+                    break;
+                }
+            }
+        });
 
         // Detect headless browsers / bots — reveal all content immediately
         const isBot = /HeadlessChrome|Playwright|Puppeteer|bot|crawl|spider|slurp|mediapartners/i.test(navigator.userAgent);
